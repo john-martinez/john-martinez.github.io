@@ -191,7 +191,7 @@ nav {
 .my-skills-wrapper{
 	width: 80vw;
 	max-width: 1500px;
-	margin: 10px auto;
+	margin: 20px auto;
 	background-color: #4c4c4c;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	border-radius: 20px;
@@ -199,7 +199,18 @@ nav {
 
 .bar-wrapper{
 	display: flex;
+	margin: 5px;
+	opacity: .8;
 }
+
+.bar-wrapper:hover{
+	opacity: 1;
+}
+
+.bar-wrapper:hover .meter{
+	background-color:  #69c166;
+}
+
 .bar-header{
 	width: 150px;
 	text-align: center;
@@ -221,18 +232,14 @@ nav {
 	left:0;
 	width: 92%;
 	height: 100%;
-	background-color: yellow;
-	z-index:2;
-
-}
-
-.my-skills-wrapper .bar-wrapper:nth-of-type(odd) .meter{
 	background-color: #dfe540;
+	z-index:2;
+	transition: .2s;
 }
 
-.my-skills-wrapper .bar-wrapper:nth-of-type(odd) .meter{
-	background-color: #69c166;
-}
+
+
+
 
 /* SCROLL BAR STYLE */
 
@@ -285,6 +292,9 @@ nav {
 	.bar-header{
 		font-size: 1em;
 		width: 100px;
+	}
+	.trait-wrapper i{
+		font-size: 5em;
 	}
 }
 
