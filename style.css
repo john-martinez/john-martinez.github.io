@@ -145,6 +145,7 @@ nav {
 	color: white;
 	margin: 20px 20px;
 	font-size: 1.25rem;
+	font-family: 'KoHo', Sans-serif;
 }
 
 .talk{
@@ -224,6 +225,7 @@ nav {
 	flex-grow: 1;
 	text-align: center;
 	padding-top: 6px;
+	background-color: white;
 }
 
 .meter{
@@ -236,10 +238,6 @@ nav {
 	z-index:2;
 	transition: .2s;
 }
-
-
-
-
 
 /* SCROLL BAR STYLE */
 
@@ -259,8 +257,7 @@ nav {
 }
 
 
-/* MEDIA QUERIES AND ANIMATIONS SECTION */
-
+/* MEDIA QUERIES */
 @media screen and (max-width: 1082px){
 	.fa-glasses{
 		font-size: 2rem;
