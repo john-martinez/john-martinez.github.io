@@ -325,6 +325,11 @@ nav {
 	.trait-wrapper i{
 		font-size: 5em;
 	}
+	.other-skills ul li{
+		font-size: 1em;
+		padding: 5px;
+		margin: 5px;
+	}
 }
 
 
