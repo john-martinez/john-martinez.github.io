@@ -99,7 +99,7 @@ nav {
 	background-color: #34373d;
 }
 
-.info-header h1{
+.info-header h1, .my-skills h1{
 	text-align: center;
 	font-size: 3rem;
 	color: white;
@@ -114,11 +114,11 @@ nav {
 
 .trait-wrapper{
 	background-color: #4c4c4c;
+	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	width: 400px;
 	flex-grow: 1;
 	margin: 10px;
-	text-align: center;
-	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
+	text-align: center;	
 	overflow: hidden;
 	border-radius: 30px;
 
@@ -130,15 +130,20 @@ nav {
 
 .trait-wrapper i{
 	margin-top: 80px;
-	color: #69c166;
+	color: #dfe540;
 	font-size: 10em;
 	overflow: hidden;
 	transition-duration: .5s;
 }
 
+.trait-wrapper h1{
+	color: white;
+	margin-top: 10px;
+}
+
 .trait-wrapper p{
 	color: white;
-	margin: 50px 20px;
+	margin: 20px 20px;
 	font-size: 1.25rem;
 }
 
@@ -161,7 +166,7 @@ nav {
 	text-decoration: underline;
 }
 
-.fa-arrow-circle-down{
+.fa-arrow-right{
 	font-size: 5rem;
 	overflow: hidden;
 	margin-top: 50px;
@@ -170,11 +175,11 @@ nav {
 	color: black;
 }
 
-.fa-arrow-circle-down:hover{
+.fa-arrow-right:hover{
 	animation-play-state: paused;
 	color: #69c166;
 	cursor: pointer;
-
+	transform: rotate(90deg);
 }
 
 .section{
@@ -183,10 +188,51 @@ nav {
 	transition: .5s;
 }
 
+.my-skills-wrapper{
+	width: 80vw;
+	max-width: 1500px;
+	margin: 10px auto;
+	background-color: #4c4c4c;
+	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
+	border-radius: 20px;
+}
 
+.bar-wrapper{
+	display: flex;
+}
+.bar-header{
+	width: 150px;
+	text-align: center;
+	color: white;
+	font-size: 1.5em;
+	background-color: #303030;
+}
 
+.bar{
+	position: relative;
+	flex-grow: 1;
+	text-align: center;
+	padding-top: 6px;
+}
 
+.meter{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 92%;
+	height: 100%;
+	background-color: yellow;
+	z-index:2;
 
+}
+
+.my-skills-wrapper .bar-wrapper:nth-of-type(odd) .meter{
+	background-color: #dfe540;
+}
+
+.my-skills-wrapper .bar-wrapper:nth-of-type(odd) .meter{
+	background-color: #69c166;
+}
 
 /* SCROLL BAR STYLE */
 
@@ -227,11 +273,18 @@ nav {
 	.ampersand{
 		font-size: 7.5rem;
 	}
-	.fa-arrow-circle-down{
+	.fa-arrow-right{
 		font-size: 3rem;
 	}
 	.jumbotron{
 		height: auto;
+	}
+	.info-header h1, .my-skills h1{
+		font-size: 2rem;
+	}
+	.bar-header{
+		font-size: 1em;
+		width: 100px;
 	}
 }
 
@@ -257,60 +310,8 @@ nav {
 		font-size: 7.5rem;
 	}
 
-	.fa-arrow-circle-down{
+	.fa-arrow-right{
 		font-size: 2.5rem;
 	}
 
 }
-
-/* ANIMATIONS */
-@keyframes bounce {
-  from,
-  20%,
-  53%,
-  80%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-  40%,
-  43% {
-    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -30px, 0);
-    transform: translate3d(0, -30px, 0);
-  }
-
-  70% {
-    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    -webkit-transform: translate3d(0, -15px, 0);
-    transform: translate3d(0, -15px, 0);
-  }
-
-  90% {
-    -webkit-transform: translate3d(0, -4px, 0);
-    transform: translate3d(0, -4px, 0);
-  }
-}
-
-.bounce {
-  -webkit-animation-name: bounce;
-  animation-name: bounce;
-  -webkit-transform-origin: center bottom;
-  transform-origin: center bottom;
-}
-
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-.animated.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
