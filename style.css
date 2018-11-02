@@ -124,11 +124,16 @@ nav {
 
 }
 
+.trait-wrapper:hover i{
+	transform: translateY(-20px);
+}
+
 .trait-wrapper i{
 	margin-top: 80px;
 	color: #69c166;
 	font-size: 10em;
 	overflow: hidden;
+	transition-duration: .5s;
 }
 
 .trait-wrapper p{
