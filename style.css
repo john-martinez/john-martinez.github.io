@@ -352,7 +352,7 @@ nav {
 	opacity: .7;
 }
 
-.project h1,h2{
+.project h1, .project h2{
 	transform: translateY(-500px);
 	padding-top: 10px;
 	transition: .3s;
@@ -381,7 +381,6 @@ nav {
 
 .author-info{
 	text-align: center;
-	word-wrap: break-word;
 }
 
 .testimonials-wrapper{
@@ -444,8 +443,26 @@ nav {
 .contact-me{
 	background-color: #34373d;
 	color: white;
+	padding-top: 30px;
+	text-align: center;
 }
 
+.contact-me h1{
+	margin-bottom: 0;
+}
+.contact-me a{
+	font-size: 3rem;
+	padding: 10px;
+	color: white;
+	transition: .4s;
+	text-decoration: none;
+}
+
+.contact-me a:hover{
+	color: #69c166;
+	transform: scale(1.5);
+	cursor: pointer;
+}
 /* SCROLL BAR STYLE */
 
 /* width */
@@ -475,20 +492,18 @@ nav {
 	}
 
 	.jumbotron h1{
-		font-size: 3rem;
+		font-size: 4rem;
+		padding: 100px 0 100px 0;
 	}
 
 	.jumbotron h2, .talk{
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 	.ampersand{
-		font-size: 7.5rem;
+		font-size: 10rem;
 	}
 	.fa-arrow-right{
-		font-size: 3rem;
-	}
-	.jumbotron{
-		height: auto;
+		font-size: 5rem;
 	}
 	.info-header h1, .my-skills h1{
 		font-size: 2rem;
@@ -509,7 +524,7 @@ nav {
 
 
 
-@media screen and (max-width: 538px){
+@media screen and (max-width: 675px){
 	.fa-glasses{
 		font-size: 2rem;
 	}
@@ -520,20 +535,20 @@ nav {
 
 	.jumbotron h1{
 		font-size: 2rem;
+		padding: 20px;
 	}
 
 	.jumbotron h2, .talk{
-		font-size: 1rem;
+		font-size: 1.25rem;
 	}
 	.ampersand{
-		font-size: 7.5rem;
+		font-size: 5rem;
 	}
-
 	.fa-arrow-right{
-		font-size: 2.5rem;
+		font-size: 3rem;
 	}
 
-		.projects h1,
+	.projects h1,
 	.contact-me h1,
 	.testimonials h1{
 		font-size: 2rem;
@@ -544,7 +559,7 @@ nav {
 	}
 
 	.author-info>p{
-		font-size: 1rem;
+		font-size: .9rem;
 	}
 
 	.author-pic {
