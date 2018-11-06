@@ -7,6 +7,7 @@
 
 html{
 	scroll-behavior: smooth;
+	background-color: white;
 }
 
 nav {
@@ -24,7 +25,7 @@ nav {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	border-radius: 30px;
+	border-radius: 50px;
 	transform: scale(0);
 	transition: .5s;
 }
@@ -34,7 +35,9 @@ nav {
 		position: relative;
 }
 
-
+.fa-glasses{
+	padding: 20px;
+}
 .fa-glasses, .icon-circle{
 	font-size: 3rem;
 	transition-duration: .3s;
@@ -42,7 +45,7 @@ nav {
 }
 
 .fa-glasses:hover + .icon-circle{
-	transform: scale(1);
+	transform: scale(1)
 }
 
 .fa-glasses:hover{
@@ -97,6 +100,7 @@ nav {
 .info {
 	font-family: 'Prompt', sans-serif;
 	background-color: #34373d;
+	padding-bottom: 300px;
 }
 
 .info-header h1, .my-skills h1{
@@ -122,6 +126,10 @@ nav {
 	overflow: hidden;
 	border-radius: 30px;
 
+}
+
+.trait-wrapper h1{
+	text-transform: uppercase;
 }
 
 .trait-wrapper:hover i{
@@ -187,6 +195,11 @@ nav {
 	width: 100vw;
 	overflow:hidden;
 	transition: .5s;
+	font-family: "KoHo", sans-serif;
+}
+
+.section h1, section h2{
+	font-family: "Prompt", sans-serif;
 }
 
 .my-skills-wrapper{
@@ -245,8 +258,9 @@ nav {
 	background-color: #4c4c4c;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	width: 80%;
-	margin: 30px auto;
+	margin: 30px auto 60px auto;
 	border-radius: 20px;
+
 }
 
 .other-skills ul{
@@ -271,6 +285,115 @@ nav {
 .other-skills ul li:hover{
 	transform: scale(1.2);
 }
+
+.projects{
+	padding: 100px 0 100px 0;
+	margin-top: -200px;
+	overflow: hidden;
+	text-align: center;
+	background-color: #efefef;
+	transform: skew(0, 5deg);
+}
+
+.projects >*{
+	transform: skew(0,-5deg);
+}
+
+.projects h1, .projects h2{
+	font-size: 3rem;
+}
+
+.projects-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.projects-wrapper > div{
+	border: 1px solid black;
+	margin: 10px;
+	height: 300px;
+	width: 400px;
+	flex-grow:1;
+	position: relative;
+	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
+	border-radius: 20px;
+}
+
+.project{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	transition: .2s;
+	opacity: 0;
+}
+
+.projects-wrapper > div:hover .overlay{
+	opacity: .7;
+}
+
+.project h1,h2{
+	transform: translateY(-500px);
+	transition: .3s;
+}
+
+.project p{
+	transform: translateY(500px);
+	transition: .5s ease-out;
+}
+
+.projects-wrapper > div:hover .project *{
+	transform: translateY(0);
+}
+
+
+.testimonials{
+	padding-top: 100px;
+	height: 100vh;
+}
+.testimonials h1, .contact-me h1{
+	font-size: 3rem;
+	text-align: center;
+	margin-bottom: 30px;
+
+}
+
+.testimonials-wrapper{
+	margin: 0 auto;
+	width: 80%;
+	height: 500px;
+	border: 1px solid black;
+	border-radius: 50px;
+	background-color: #efefef;
+	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
+	padding: 20px;
+}
+
+.testimonial-block{
+	display: inline;
+}
+.testimonial-block h1{
+	font-size: 2em;
+	display: inline;
+}
+
+.testimonial-block p{
+	display: inline;
+}
+
+
 /* SCROLL BAR STYLE */
 
 /* width */
