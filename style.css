@@ -292,13 +292,12 @@ nav {
 	overflow: hidden;
 	text-align: center;
 	background-color: #efefef;
-	/*transform: skew(0, 5deg);*/
+	transform: skew(0, 5deg);
 }
-/*
+
 .projects >*{
 	transform: skew(0,-5deg);
-}*/
-
+}
 .projects h1, .projects h2{
 	font-size: 3rem;
 }
