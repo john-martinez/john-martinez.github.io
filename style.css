@@ -260,6 +260,7 @@ nav {
 	width: 80%;
 	margin: 30px auto 60px auto;
 	border-radius: 20px;
+	max-width: 900px;
 
 }
 
@@ -298,8 +299,16 @@ nav {
 .projects >*{
 	transform: skew(0,-5deg);
 }
-.projects h1, .projects h2{
+.projects h1{
 	font-size: 3rem;
+}
+
+.projects h2{
+	font-size: 2rem;
+}
+
+.projects p{
+	font-size: 1.5em;
 }
 
 .projects-wrapper{
@@ -345,12 +354,14 @@ nav {
 
 .project h1,h2{
 	transform: translateY(-500px);
+	padding-top: 10px;
 	transition: .3s;
 }
 
 .project p{
 	transform: translateY(500px);
 	transition: .5s ease-out;
+	padding-top: 20px;
 }
 
 .projects-wrapper > div:hover .project *{
@@ -359,8 +370,7 @@ nav {
 
 
 .testimonials{
-	padding-top: 100px;
-	height: 100vh;
+	padding: 100px 0 100px 0;
 }
 .testimonials h1, .contact-me h1{
 	font-size: 3rem;
@@ -369,29 +379,72 @@ nav {
 
 }
 
+.author-info{
+	text-align: center;
+	word-wrap: break-word;
+}
+
 .testimonials-wrapper{
-	margin: 0 auto;
-	width: 80%;
-	height: 500px;
-	border: 1px solid black;
-	border-radius: 50px;
-	background-color: #efefef;
-	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
-	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.testimonials-wrapper>*{
+	margin: 20px;
+}
+
+.author-pic{
+	width: 8rem;
+	height: 8rem;
+}
+
+.author-pic+p{
+	font-weight: bold;
+	font-size: 1.25rem;
+	color: #69c166;
+}
+
+.bubble{
+	width: 60%;
+	position: relative;
+	overflow: visible;
+	max-width: 900px;
+}
+
+.arrow-head{
+	height: 50px;
+	width: 50px;
+	background-color: #4c4c4c;
+	position: absolute;
+	top: 40%;
+	left: -25px;
+	transform: rotate(45deg);
 }
 
 .testimonial-block{
-	display: inline;
+	width: 100%;
+	height: auto;
+	border: 1px solid black;
+	border-radius: 50px;
+	background-color: #4c4c4c;
+	color: white;
+	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
+	padding: 50px;
 }
+
+
 .testimonial-block h1{
 	font-size: 2em;
-	display: inline;
+	text-align: left;
+	text-transform: uppercase;
 }
 
-.testimonial-block p{
-	display: inline;
-}
 
+.contact-me{
+	background-color: #34373d;
+	color: white;
+}
 
 /* SCROLL BAR STYLE */
 
@@ -480,4 +533,50 @@ nav {
 		font-size: 2.5rem;
 	}
 
+		.projects h1,
+	.contact-me h1,
+	.testimonials h1{
+		font-size: 2rem;
+	}
+
+	.author-info{
+		width: 20%;
+	}
+
+	.author-info>p{
+		font-size: 1rem;
+	}
+
+	.author-pic {
+		width: 4em;
+		height: 4em;
+	}
+
+	.bubble{
+		width: 70%;
+	}
+	.arrow-head{
+		left: -10px;
+
+	}
+	.testimonial-block{
+		padding: 20px;
+	}
+	.testimonial-block h1{
+		font-size: 1.5em;
+	}
+	.arrow-head{
+		width: 25px;
+		height: 25px;
+	}
+
+	.project h1{
+		font-size: 1.75em;
+	}
+	.project h2{
+		font-size: 1.5em;
+	}
+	.project p{
+		font-size: 1em;
+	}
 }
