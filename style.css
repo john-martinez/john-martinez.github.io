@@ -222,6 +222,7 @@ nav {
 	background-color: #4c4c4c;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	border-radius: 20px;
+	padding: 5px;
 }
 
 .bar-wrapper{

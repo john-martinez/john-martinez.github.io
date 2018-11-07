@@ -64,6 +64,7 @@ mySkills.forEach(mySkill=>{
 	// create a div element with class bar-header with a textnode that contains myskill.skill
 	let barHeader = document.createElement('div');
 		barHeader.classList.add('bar-header');
+		barHeader.appendChild(document.createTextNode(mySkill.skill));
 
 	// create a div element with class bar
 	let bar = document.createElement('div');
@@ -108,11 +109,11 @@ const otherSkills = [
 ];
 
 // loop starts here
-otherSkills.forEach((skill)=>{
+otherSkills.forEach((otherSkill)=>{
 	// create an li element
 	let li = document.createElement('li');
 	// create a text node which contains other skill
-		li.appendChild(document.createTextNode(skill));
+		li.appendChild(document.createTextNode(otherSkill));
 	// append li to parent ul
 		otherSkillsParent.appendChild(li);
 });
