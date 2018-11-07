@@ -421,6 +421,10 @@ nav {
 	transform: rotate(45deg);
 }
 
+.yellow{
+	color: #dfe540;
+}
+
 .testimonial-block{
 	width: 100%;
 	height: auto;
