@@ -35,13 +35,14 @@ nav {
 		position: relative;
 }
 
-.fa-glasses{
-	padding: 20px;
-}
 .fa-glasses, .icon-circle{
 	font-size: 3rem;
 	transition-duration: .3s;
 	overflow: hidden;
+}
+
+.fa-glasses{
+	padding: 20px;
 }
 
 .fa-glasses:hover + .icon-circle{
