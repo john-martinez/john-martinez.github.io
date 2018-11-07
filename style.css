@@ -58,13 +58,25 @@ nav {
 }
 
 .jumbotron{
-	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	text-align: center;
 	padding-top: 70px;
+	margin-bottom: 50px;
+}
+
+.first-line-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.first-line-wrapper h1{
+	text-align: right;
+	padding-top: 60px;
 }
 
 .to-left{
-	display: inline-block;
 	margin: 0 auto;
 }
 .to-left *{
@@ -79,6 +91,7 @@ nav {
 	transition: .5s;
 }
 
+
 .jumbotron h2, .talk{
 	font-family: 'KoHo', sans-serif;
 	font-size: 3rem;
@@ -87,16 +100,14 @@ nav {
 	transition: .5s;
 }
 
-.inline-block{
-	display:inline;
-}
 .jumbotron-header-wrapper{
 	display: flex;
 	flex-direction: column;
 }
 
 .ampersand{
-	font-size: 15rem;
+	font-size: 20rem;
+	margin-left: 20px;
 }
 
 .info {
@@ -224,7 +235,7 @@ nav {
 }
 
 .bar-wrapper:hover .meter{
-	background-color:  #69c166;
+	background-color:  #59b300;
 }
 
 .bar-header{
@@ -250,7 +261,7 @@ nav {
 	left:0;
 	width: 92%;
 	height: 100%;
-	background-color: #dfe540;
+	background-color: #73e600;
 	z-index:2;
 	transition: .2s;
 }
@@ -521,8 +532,8 @@ nav {
 		padding: 0;
 	}
 	.ampersand{
-		font-size: 7rem;
-		margin: 0;
+		font-size: 12rem;
+		margin-left: 20px;
 	}
 	.fa-arrow-right{
 		font-size: 5rem;
@@ -547,7 +558,7 @@ nav {
 
 
 
-@media screen and (max-width: 675px){
+@media screen and (max-width: 675px) {
 	.fa-glasses{
 		font-size: 2rem;
 	}
@@ -557,18 +568,19 @@ nav {
 	}
 
 	.jumbotron{
-		margin-top: 80px;
-		height: auto;
+		margin-top: 0px;
+		height: 100vh;
+		
 	}
 	.jumbotron h1{
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 
 	.jumbotron h2, .talk{
-		font-size: 1.25rem;
+		font-size: 1.5rem;
 	}
 	.ampersand{
-		font-size: 5rem;
+		font-size: 4rem;
 	}
 	.fa-arrow-right{
 		font-size: 3rem;
