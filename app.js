@@ -67,7 +67,12 @@ const populateSkills = () =>{
 		// create a div element with class bar
 		let bar = document.createElement('div');
 			bar.classList.add('bar');
-			bar.appendChild(document.createTextNode(mySkill.level));
+
+		// create a div element with class text-node which contains skill percentage
+		let textNode = document.createElement('div');
+			textNode.classList.add('text-node');
+			textNode.appendChild(document.createTextNode(mySkill.level));
+			bar.appendChild(textNode);
 
 		// create a div element with class meter
 		let meter = document.createElement('div');
@@ -197,24 +202,34 @@ const populateTestimonials = ()=>{
 }
 	
 
+
+// functions
+const hideDelay = ()=>{
+	window.setTimeout(()=>{
+  		nav.classList.add('hide');
+  		nav.classList.remove('show');
+  	}, 10000);
+}
+
 // EVENTS
 // Copy emails into clipboard
-const copyEmail = ()=>{
-		const emails = document.querySelector('#emailContainer');
-		emails.select();
-		document.execCommand("copy");	
-		alert("Email addresses successfully copied to clipboard!");
+const sendEmail = ()=>{
+		window.location.href = 'mailto:jrvmartinz@gmail.com;jrmartinez2@myseneca.ca;jrvmartinez@icloud.com';
 }
-	
 
 
 // show sections with animations
+const nav = document.querySelector('nav');
 var myScrollFunc = function() {
-  var y = window.scrollY;
-  if (y > 100){
-
-  }
+  let y = window.scrollY;
+  if (Math.floor(y) > 120){
+  	nav.classList.add('sticky');
+  	hideDelay();
+  	nav.classList.add('show'); // to start showing while scrolling
+  	nav.classList.remove('hide'); 		
+  } 
 };
+
 
 
 // main data population
@@ -225,6 +240,6 @@ populateTestimonials();
 // events
 document.addEventListener("scroll", myScrollFunc);
 
-// email copy
+// email send
 const emailButton = document.querySelector('#emailCopy');
-emailButton.addEventListener('click', copyEmail);
+emailButton.addEventListener('click', sendEmail);

@@ -19,6 +19,7 @@ nav {
 	left: 0;
 	right: 0;
 	z-index: 2;
+	transition: .5s;
 }
 
 .icon-circle{
@@ -70,6 +71,7 @@ nav {
 	padding-top: 70px;
 	background-color: rgba(6,74,0,.6);
 	color: white;
+	min-height: 100vh;
 }
 
 .jumbotron-overlay{
@@ -464,7 +466,7 @@ nav {
 	background-color: #4c4c4c;
 	color: white;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
-	padding: 20px 35px 20px 35px;
+	padding: 20px 35px 20px 40px;
 }
 
 
@@ -504,11 +506,52 @@ nav {
 	cursor: pointer;
 }
 
-.hidden{
-	opacity: 0;
+.hide{
+	transform: scale(0);
+}
+.show{
+	transform: scale(1);
+}
+.sticky{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	transition: .3s;
+	transform-origin: top;
 }
 
+.sticky:hover{
+	background-color: rgba(0,0,0,.5);
+	color: white;
+	opacity: 1;
+}
 
+.sticky:hover .talk{
+	color: white;
+	border-color: white;
+}
+.sticky:hover .talk:hover{
+	color:#69c166;
+	border-color: #69c166;
+}
+
+.text-node{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	color: black;
+	font-family: "KoHo", sans-serif;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	cursor: context-menu;
+}
+
+.active{
+	transition: scale(1);
+}
 /* SCROLL BAR STYLE */
 
 /* width */
