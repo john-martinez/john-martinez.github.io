@@ -132,7 +132,7 @@ nav {
 .trait-wrapper{
 	background-color: #4c4c4c;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
-	width: 400px;
+	width: 300px;
 	flex-grow: 1;
 	margin: 10px;
 	text-align: center;	
@@ -191,7 +191,7 @@ nav {
 .fa-arrow-right{
 	font-size: 5rem;
 	overflow: hidden;
-	margin: 50px;
+	margin: 50px auto 50px auto;
 	transition: .5s;
 	text-decoration: none;
 	color: black;
@@ -217,7 +217,7 @@ nav {
 
 .my-skills-wrapper{
 	width: 80vw;
-	max-width: 1500px;
+	max-width: 1000px;
 	margin: 20px auto;
 	background-color: #4c4c4c;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
@@ -274,8 +274,7 @@ nav {
 	width: 80%;
 	margin: 30px auto 60px auto;
 	border-radius: 20px;
-	max-width: 900px;
-
+	max-width: 1000px;
 }
 
 .other-skills ul{
@@ -331,6 +330,7 @@ nav {
 	justify-content: center;
 	width: 80%;
 	margin: 0 auto;
+	max-width: 650px;
 }
 
 .projects-wrapper > div{
@@ -389,7 +389,7 @@ nav {
 .testimonials h1, .contact-me h1{
 	font-size: 3rem;
 	text-align: center;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 
 }
 
@@ -431,7 +431,7 @@ nav {
 	background-color: #4c4c4c;
 	position: absolute;
 	top: 40%;
-	left: -25px;
+	left: -20px;
 	transform: rotate(45deg);
 }
 
@@ -447,7 +447,7 @@ nav {
 	background-color: #4c4c4c;
 	color: white;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
-	padding: 50px;
+	padding: 20px 35px 20px 35px;
 }
 
 
@@ -455,6 +455,11 @@ nav {
 	font-size: 2em;
 	text-align: left;
 	text-transform: uppercase;
+	color: #69c166;;
+}
+
+.testimonial-block p{
+	font-size: 1.2rem;
 }
 
 
@@ -515,7 +520,6 @@ nav {
 		padding: 10px;
 	}
 
-
 	.jumbotron{
 		margin-top: 80px;
 	}
@@ -538,7 +542,9 @@ nav {
 	}
 	.fa-arrow-right{
 		font-size: 5rem;
-		margin-bottom: 50px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+
 	}
 	.info-header h1, .my-skills h1{
 		font-size: 2rem;
@@ -554,6 +560,14 @@ nav {
 		font-size: 1em;
 		padding: 5px;
 		margin: 5px;
+	}
+
+	.testimonial-block{
+		padding: 15px 35px 15px 40px;
+	}
+
+	.testimonial-block h1{
+		font-size: 1.5em;
 	}
 }
 
