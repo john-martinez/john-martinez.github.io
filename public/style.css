@@ -22,46 +22,10 @@ nav {
 	transition: .5s;
 }
 
-.icon-circle{
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: #222326;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	border-radius: 50px;
-	transform: scale(0);
-	transition: .5s;
-}
-
-
-.icon-wrapper{
-		position: relative;
-}
-
-.fa-glasses, .icon-circle{
-	font-size: 3rem;
-	transition-duration: .3s;
-	overflow: hidden;
-}
-
-.fa-glasses{
-	padding: 20px;
-}
-
-.fa-glasses:hover + .icon-circle{
-	transform: scale(1)
-}
-
-.fa-glasses:hover{
-	color: white;
-	cursor: pointer;
-}
-
 .container{
 	position: relative;
 }
+
 
 .jumbotron{
 	display: flex;
@@ -69,11 +33,14 @@ nav {
 	justify-content: center;
 	text-align: center;
 	padding-top: 70px;
-	background-color: rgba(6,74,0,.6);
+	background-color: rgba(6,74,0,.7);
 	color: white;
 	min-height: 100vh;
 }
 
+.jumbotron-header h2, .jumbotron-header h1{
+	text-align: center;
+}
 .jumbotron-overlay{
 	position:absolute;
 	top:0;
@@ -84,6 +51,27 @@ nav {
 	background-size: cover;
 	background-position: right bottom;
 	z-index: -5;
+	transition: .5s;
+}
+
+.jumbotron-overlay2{
+	position:absolute;
+	top:0;
+	left:0;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+	transition: .5s;
+	text-align: center;
+}
+
+.jumbotron-overlay2>h1{
+	position: absolute;
+	top:50;
+	left:0;
+	right: 0;
+	transition: 1s;
+	opacity: 0;
 }
 .first-line-wrapper{
 	display: flex;
@@ -111,7 +99,7 @@ nav {
 }
 
 
-.jumbotron h2, .talk{
+.jumbotron h2{
 	font-family: 'KoHo', sans-serif;
 	font-size: 3rem;
 	font-weight: 200;
@@ -119,9 +107,22 @@ nav {
 	transition: .5s;
 }
 
-.jumbotron-header-wrapper{
-	display: flex;
-	flex-direction: column;
+.jumbotron-header{
+	transition-duration: .5s;
+	opacity: 0;
+}
+
+.jumbotron-header h2{
+	opacity: 0;
+}
+
+
+.sticky{
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
 }
 
 .ampersand{
@@ -188,20 +189,6 @@ nav {
 	font-family: 'KoHo', Sans-serif;
 }
 
-.talk{
-	font-size: 2rem;
-	color: black;
-	border: 2px solid black;
-	padding: 15px;
-	border-radius: 25px;
-	transition: .5s;
-}
-
-.talk:hover{
-	color: white;
-	border-color: white;
-	cursor: pointer;
-}
 
 .underline{
 	text-decoration: underline;
@@ -303,7 +290,7 @@ nav {
 	text-align: center;
 }
 .other-skills ul li{
-	background-color: #69c166;
+	background-color: #168316;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	border-radius: 10px;
 	display: inline-block;
@@ -506,36 +493,6 @@ nav {
 	cursor: pointer;
 }
 
-.hide{
-	transform: scale(0);
-}
-.show{
-	transform: scale(1);
-}
-.sticky{
-	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	transition: .3s;
-	transform-origin: top;
-}
-
-.sticky:hover{
-	background-color: rgba(0,0,0,.5);
-	color: white;
-	opacity: 1;
-}
-
-.sticky:hover .talk{
-	color: white;
-	border-color: white;
-}
-.sticky:hover .talk:hover{
-	color:#69c166;
-	border-color: #69c166;
-}
-
 .text-node{
 	position: absolute;
 	top: 0;
@@ -550,9 +507,7 @@ nav {
 	padding-top: 5px;
 }
 
-.active{
-	transition: scale(1);
-}
+
 /* SCROLL BAR STYLE */
 
 /* width */
@@ -573,14 +528,6 @@ nav {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 1082px){
-	.fa-glasses{
-		font-size: 2rem;
-	}
-	.talk{
-		font-size: 1rem;
-		padding: 10px;
-	}
-
 	.text-node{
 		padding: 0;
 
@@ -588,11 +535,6 @@ nav {
 	.jumbotron h1{
 		font-size: 4rem;
 		padding: 0;
-	}
-
-	.talk{
-		font-size: 2rem;
-		padding: 10px;
 	}
 	.jumbotron h2{
 		font-size: 2rem;
@@ -636,14 +578,6 @@ nav {
 
 
 @media screen and (max-width: 675px) {
-	.fa-glasses{
-		font-size: 2rem;
-	}
-	.talk{
-		font-size: 1rem;
-		padding: 5px;
-	}
-
 	.jumbotron{
 		margin-top: 0px;
 		height: 100vh;
@@ -652,7 +586,7 @@ nav {
 		font-size: 2rem;
 	}
 
-	.jumbotron h2, .talk{
+	.jumbotron h2{
 		font-size: 1.5rem;
 	}
 	.ampersand{

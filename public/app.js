@@ -105,62 +105,63 @@ const populateProjects = ()=>{}
 
 // Data for Testimonials
 const populateTestimonials = ()=>{
-	// select the div element with class testimonials
-	const parentTestimonials = document.querySelector('.testimonials');
+	fetch('/api/testimonials')
+	.then(res=>res.json())
+	.then(testimonials=>{
+		// select the div element with class testimonials
+		const parentTestimonials = document.querySelector('.testimonials');
+		// loop starts here
+		testimonials.forEach(testimonial=>{
+		// create a div element with class testimonials-wrapper
+			let testimonialsWrapper = document.createElement('div');
+				testimonialsWrapper.classList.add('testimonials-wrapper');
+			// create a div element with class author-info
+			let authorInfo = document.createElement('div');
+				authorInfo.classList.add('author-info');
+				// create an img element with class author-pic which will have a default value of media/Unknown-person.gif
+			let img = document.createElement('img');
+				img.classList.add('author-pic');
+				testimonial.img ? img.src = testimonial.img : img.src = 'Unknown-person.gif';
+				// create a p element which contains the name of the author
+			let name = document.createElement('p');
+				name.appendChild(document.createTextNode(testimonial.author));
+				// create a p element which contains the author's position and the company.
+			let position = document.createElement('p');
+				position.appendChild(document.createTextNode(`${testimonial.position} at ${testimonial.company}`))
+			//create a div element with class bubble
+			let bubble = document.createElement('div');
+				bubble.classList.add('bubble');
+				// create a div element with class testimonial-block
+			let testimonialBlock = document.createElement('div');
+				testimonialBlock.classList.add('testimonial-block');
+					// create an h1 element which contains the headline
+			let headline = document.createElement('h1');
+				headline.appendChild(document.createTextNode(testimonial.headline));
+					// create a p element which contains the message
+			let body = document.createElement('p');
+				body.appendChild(document.createTextNode(testimonial.message));
+				// create a div element with class arrow-head
+			let arrowHead = document.createElement('div');
+				arrowHead.classList.add('arrow-head');
 
-
-
-
-	// loop starts here
-	testimonials.forEach(testimonial=>{
-	// create a div element with class testimonials-wrapper
-		let testimonialsWrapper = document.createElement('div');
-			testimonialsWrapper.classList.add('testimonials-wrapper');
-		// create a div element with class author-info
-		let authorInfo = document.createElement('div');
-			authorInfo.classList.add('author-info');
-			// create an img element with class author-pic which will have a default value of media/Unknown-person.gif
-		let img = document.createElement('img');
-			img.classList.add('author-pic');
-			testimonial.img ? img.src = testimonial.img : img.src = 'Unknown-person.gif';
-			// create a p element which contains the name of the author
-		let name = document.createElement('p');
-			name.appendChild(document.createTextNode(testimonial.author));
-			// create a p element which contains the author's position and the company.
-		let position = document.createElement('p');
-			position.appendChild(document.createTextNode(`${testimonial.position} at ${testimonial.company}`))
-		//create a div element with class bubble
-		let bubble = document.createElement('div');
-			bubble.classList.add('bubble');
-			// create a div element with class testimonial-block
-		let testimonialBlock = document.createElement('div');
-			testimonialBlock.classList.add('testimonial-block');
-				// create an h1 element which contains the headline
-		let headline = document.createElement('h1');
-			headline.appendChild(document.createTextNode(testimonial.headline));
-				// create a p element which contains the message
-		let body = document.createElement('p');
-			body.appendChild(document.createTextNode(testimonial.message));
-			// create a div element with class arrow-head
-		let arrowHead = document.createElement('div');
-			arrowHead.classList.add('arrow-head');
-
-			// append img, name and position to authorInfo
-			authorInfo.appendChild(img);
-			authorInfo.appendChild(name);
-			authorInfo.appendChild(position);
-			// append headline and body to testimonial-block
-			testimonialBlock.appendChild(headline);
-			testimonialBlock.appendChild(body);
-			// append testimonialBlock and arrowHead to bubble
-			bubble.appendChild(testimonialBlock);
-			bubble.appendChild(arrowHead);
-			// append authorInfo and bubble to testimonialsWrapper
-			testimonialsWrapper.appendChild(authorInfo);
-			testimonialsWrapper.appendChild(bubble);
-			// append testimonialsWrapper to parentTestimonials
-			parentTestimonials.appendChild(testimonialsWrapper);
-	});
+				// append img, name and position to authorInfo
+				authorInfo.appendChild(img);
+				authorInfo.appendChild(name);
+				authorInfo.appendChild(position);
+				// append headline and body to testimonial-block
+				testimonialBlock.appendChild(headline);
+				testimonialBlock.appendChild(body);
+				// append testimonialBlock and arrowHead to bubble
+				bubble.appendChild(testimonialBlock);
+				bubble.appendChild(arrowHead);
+				// append authorInfo and bubble to testimonialsWrapper
+				testimonialsWrapper.appendChild(authorInfo);
+				testimonialsWrapper.appendChild(bubble);
+				// append testimonialsWrapper to parentTestimonials
+				parentTestimonials.appendChild(testimonialsWrapper);
+		});
+	})
+		
 }
 	
 
@@ -176,30 +177,59 @@ const hideDelay = ()=>{
 // EVENTS
 // Copy emails into clipboard
 const sendEmail = ()=>{
-		window.location.href = 'mailto:jrvmartinz@gmail.com;jrmartinez2@myseneca.ca;jrvmartinez@icloud.com';
+	window.location.href = 'mailto:jrvmartinz@gmail.com;jrmartinez2@myseneca.ca;jrvmartinez@icloud.com';
 }
 
 // show sections with animations
-const nav = document.querySelector('nav');
 var myScrollFunc = function() {
-  let y = window.scrollY;
-  if (Math.floor(y) > 120){
-  	nav.classList.add('sticky');
-  	hideDelay();
-  	nav.classList.add('show'); // to start showing while scrolling
-  	nav.classList.remove('hide'); 		
-  } 
+  let y = window.scrollY;	
 };
-
-
 
 // main data population
 populateTraits();
 populateSkills();
 populateTestimonials();
 
+
 // events
 document.addEventListener("scroll", myScrollFunc);
+
+document.addEventListener("DOMContentLoaded", (e)=>{
+	const jumbo = document.querySelector('.jumbotron-header');
+	const jumbo2 = document.querySelector('.jumbotron-overlay2');
+	const first = document.querySelector('.first');
+	const second = document.querySelector('.second');
+	const third = document.querySelector('.third');
+    const finish = document.querySelector('.jumbotron-header h2');
+
+	setTimeout(()=>{
+		document.querySelector('.jumbotron-overlay').style.filter = "blur(15px)";
+		first.style.opacity = "1";
+		setTimeout(()=>{
+			first.style.opacity="0";
+			setTimeout(()=>{
+				second.style.opacity = "1";
+				setTimeout(()=>{
+					second.style.opacity ="0";
+					setTimeout(()=>{
+						third.style.opacity ="1";
+						setTimeout(()=>{
+							third.style.opacity ="0";
+							setTimeout(()=>{
+								jumbo2.style.opacity = "0";
+								jumbo2.style.zIndex = "-99";
+								jumbo.style.opacity = "1";
+								setTimeout(()=>{
+									finish.style.opacity = "1";
+								},1000)
+							},1000)		
+						},3000)
+					},1000)
+				},3000)
+			}, 1000)
+		}, 3000);
+	}, 2000)
+})
 
 // email send
 const emailButton = document.querySelector('#emailCopy');

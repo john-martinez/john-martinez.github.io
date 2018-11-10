@@ -25,6 +25,10 @@ const testimonialSchema = new mongoose.Schema({
 	message: {
 		type: String,
 		required: true
+	},
+	email:{
+		type: String,
+		required: true
 	}
 });
 
