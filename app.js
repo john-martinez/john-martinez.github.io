@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
-const Traits = require('./routes/traits.js');
-const Skills = require('./routes/skills.js');
-const OtherSkills = require('./routes/otherSkills.js');
-const Testimonials = require('./routes/testimonials.js');
+const Traits = require('./routes/traits');
+const Skills = require('./routes/skills');
+const OtherSkills = require('./routes/otherSkills');
+const Projects = require('./routes/projects');
+const Testimonials = require('./routes/testimonials');
+
+
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,8 +14,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/media'));
-
-app.set('view engine', 'html');
 
 
 app.get('/', (req,res)=>{
@@ -22,6 +23,8 @@ app.get('/', (req,res)=>{
 app.use("/api/traits", Traits);
 app.use("/api/skills", Skills);
 app.use("/api/other-skills", OtherSkills);
+app.use("/api/projects", Projects);
 app.use("/api/testimonials", Testimonials);
+
 
 app.listen(3000, ()=> "listening to port 3000");

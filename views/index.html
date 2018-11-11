@@ -32,7 +32,7 @@
 			</div>
 		</div>
 	
-		<div id="next" class="section info">
+		<div id="next" class="section info hidden">
 			<div class="info-header">	
 				<div class="me">
 					<img src="mypic.jpg"/>
@@ -60,18 +60,7 @@
 		<div class="section projects">
 			<h1>My <span class="green">Projects</span></h1>
 			<div class="projects-wrapper">
-				<div>
-					<div class="project">
-						<h1>Title</h1>
-						<h2>Technologies used</h2>
-						<p>description description description description description</p>
-					</div> 
-					<div class="overlay">
-						
-					</div>
-				</div>
-	
-				
+				<!-- Projects go here -->
 			</div>
 		</div>
 		<div class="section testimonials">
@@ -85,31 +74,29 @@
 							<table>
 								<thead><h1>Add Testimonial <i class="closeForm fas fa-times"></i></h1></thead>
 								<tr>
-									<td><label for="email"> Email </label></td>
-									<td><input id="email" type="email" name="email"> </td>
-								</tr>
-								<tr>
-									<td><label for="author"> Author </label></td>
-									<td><input id="author" type="text" name="author"> </td>
+									<td><label for="image URL"> Photo URL </label></td>
+									<td><input id="img" type="text" name="img" placeholder="Paste image url. example: http://www.google.com/search?potato218738asdjkas213"> </td>
 								</tr>	
-									<tr>
+								<tr>
 									<td><label for="position"> Job Title </label></td>
-									<td><input id="position" type="text" name="position"> </td>
+									<td><input id="position" type="text" name="position" placeholder="example: Frontend Web Developer"> </td>
 								</tr>	
 								<tr>
 									<td><label for="company"> Company </label></td>
-									<td><input id="company" type="text" name="company"> </td>
+									<td><input id="company" type="text" name="company" placeholder="example: Imagine nation"> </td>
+								</tr>	
+							
+								<tr>
+									<td><label for="author"> Author<span class="red">*</span> </label></td>
+									<td><input id="author" type="text" name="author" placeholder="example: Joe Smith"> </td>
 								</tr>	
 								<tr>
-									<td><label for="image URL"> Photo URL </label></td>
-									<td><input id="img" type="text" name="img"> </td>
-								</tr>	
-								<tr>
-									<td><label for="headline"> Headline</label></td>
-									<td><input id="headline" type="text" name="headline"> </td>
+									<td><label for="headline"> Headline<span class="red">*</span></label></td>
+									<td><input id="headline" type="text" name="headline" placeholder ="example: An interesting and efficient fellow!"> </td>
 								</tr>	
 									<tr>
-									<td><label for="message"> Message </label></td>
+
+									<td><label for="message"> Message<span class="red">*</span></label></td>
 									<td><textarea id="message" name="message"></textarea></td>
 								</tr>
 								<tr>
@@ -126,7 +113,7 @@
 			<div class="contact-me">
 				<h1>Contact <span class="green">Me </span></h1>
 				<a class="fab fa-facebook-square" href="https://www.facebook.com/warmdawg" target="_blank" title="Link to my facebook account"></a>
-				<a class="fab fa-twitter" href="https://twitter.com/jorcrates" target="_blank" title="Link to my twitter account"></a>
+				<a class="fab fa-linkedin" href="https://www.linkedin.com/in/john-ray-martinez-b5947511b/" target="_blank" title="Link to my twitter account"></a>
 				<a class="fab fa-github" target="_blank" href="https://github.com/john-martinez" title="Link to my github account"></a>
 				<a id="emailCopy" class="fas fa-envelope-square" title="Send email"></a>
 				<p>JOHN RAY MARTINEZ <span class="yellow">©</span> <span class="green">2018</span> </p>

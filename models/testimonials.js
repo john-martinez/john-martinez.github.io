@@ -7,12 +7,10 @@ const testimonialSchema = new mongoose.Schema({
 		required: true
 	}, 
 	position: {
-		type: String,
-		required: true
+		type: String
 	},
 	company: {
-		type: String,
-		required: true
+		type: String
 	},
 	img: {
 		type: String,
@@ -23,10 +21,6 @@ const testimonialSchema = new mongoose.Schema({
 		required: true
 	},
 	message: {
-		type: String,
-		required: true
-	},
-	email:{
 		type: String,
 		required: true
 	},

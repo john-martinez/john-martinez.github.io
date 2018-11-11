@@ -111,9 +111,13 @@ nav {
 	transition: .5s;
 }
 
+.red{
+	color: red;
+}
 .jumbotron-header{
 	transition-duration: .5s;
 	opacity: 0;
+	overflow: hidden;
 }
 
 .jumbotron-header h2{
@@ -375,7 +379,6 @@ nav {
 	justify-content: center;
 	width: 80%;
 	margin: 0 auto;
-	max-width: 650px;
 }
 
 .projects-wrapper > div{
@@ -387,6 +390,7 @@ nav {
 	position: relative;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	border-radius: 20px;
+	max-width: 500px;
 }
 
 .project{
@@ -405,28 +409,54 @@ nav {
 	background-color: black;
 	transition: .2s;
 	opacity: 0;
+	cursor: context-menu;
 }
 
 .projects-wrapper > div:hover .overlay{
 	opacity: .7;
 }
 
-.project h1, .project h2{
+.overlay h1{
+
+	color: #69c166;
+}
+
+.overlay h2{
+	color: #dfe540;
+}
+
+.overlay h1, .overlay h2{
 	transform: translateY(-500px);
 	padding-top: 10px;
 	transition: .3s;
 }
 
-.project p{
+
+.overlay p, .overlay a{
 	transform: translateY(500px);
 	transition: .5s ease-out;
 	padding-top: 20px;
+	color: white;
 }
 
-.projects-wrapper > div:hover .project *{
+.overlay a{
+	color: #69c166;
+	font-size: 3rem;
+	text-decoration: none;
+	margin-bottom: 10px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.overlay a:hover{
+	color: white;
+}
+
+.projects-wrapper > div:hover .overlay *{
 	transform: translateY(0);
 }
-
 
 .testimonials{
 	padding: 100px 0 100px 0;
@@ -495,6 +525,7 @@ nav {
 	color: white;
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	padding: 20px 35px 20px 40px;
+	min-height: 160px;
 }
 
 
@@ -505,9 +536,14 @@ nav {
 	color: #69c166;;
 }
 
-.testimonial-block p{
+.testimonial-block pre{
 	font-size: 1.2rem;
+	font-family: "KoHo", sans-serif;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+
 }
+
 
 
 .contact-me{
@@ -650,7 +686,6 @@ textarea{
 	font-size: 1.3rem;
 	border-radius: 20px;
 	padding: 10px;
-
 }
 tr:nth-of-type(6) input{
 	font-weight: bold;
@@ -679,22 +714,19 @@ input:focus{
 	cursor: pointer;
 }
 
+::placeholder{
+	opacity: .5;
+	font-style: italic;
+	font-size: 1rem;
+}
+
 /* SCROLL BAR STYLE */
 
 /* width */
 ::-webkit-scrollbar {
-    width: 2px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #69c166; 
+    display: none;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #69c166; 
-}
 
 
 /* MEDIA QUERIES */
@@ -774,7 +806,10 @@ input:focus{
 		font-size: 3rem;
 		transform: rotate(90deg);
 	}
-
+	.projects-wrapper{
+		width: 95%;
+		height: auto;
+	}
 	.testi-form-wrapper{
 		width: 95%;
 		min-width: 310px;
@@ -788,6 +823,7 @@ input:focus{
 	}
 	textarea{
 		height: 200px;
+		resize: none;
 	}
 
 	tr td:nth-of-type(1){
@@ -801,6 +837,23 @@ input:focus{
 	.contact-me h1,
 	.testimonials h1{
 		font-size: 2rem;
+	}
+
+	.overlay h1{
+		font-size: 1.5rem;
+	}
+
+
+	.overlay h2{
+		font-size: 1.2rem;
+	}
+
+	.overlay p{
+		font-size: 1rem;
+	}
+
+	.overlay i{
+		font-size: 1.5rem;
 	}
 
 	.author-info{

@@ -29,6 +29,7 @@ const populateTraits = () =>{
 				traitsParent.appendChild(traitWrapper);
 		});
 	})
+	.catch(err=>console.log(err))
 }
 
 // Data for skills
@@ -42,42 +43,37 @@ const populateSkills = () =>{
 			// create a div element with class bar-wrapper
 			let barWrapper = document.createElement('div');
 				barWrapper.classList.add('bar-wrapper');
-
 			// create a div element with class bar-header with a textnode that contains myskill.skill
 			let barHeader = document.createElement('div');
 				barHeader.classList.add('bar-header');
 				barHeader.appendChild(document.createTextNode(skill.skillName));
-
 			// create a div element with class bar
 			let bar = document.createElement('div');
 				bar.classList.add('bar');
-
 			// create a div element with class text-node which contains skill percentage
 			let textNode = document.createElement('div');
 				textNode.classList.add('text-node');
 				textNode.appendChild(document.createTextNode(skill.skillLevel));
 				bar.appendChild(textNode);
-
 			// create a div element with class meter
 			let meter = document.createElement('div');
 				meter.classList.add('meter');
-
 			// set meter's width to myskill.level
 				meter.style.width = skill.skillLevel;
 				bar.appendChild(meter);
-
 			// append barHeader to barWrapper
 				barWrapper.appendChild(barHeader);
-
 			// append bar to barWrapper
 				barWrapper.appendChild(bar);
-
 			// append barWrapper to skillsParent
 				skillsParent.appendChild(barWrapper);
 		});
 
 	})
+	.catch(err=>console.log(err))
 
+
+    // other skills
 	fetch('/api/other-skills')
 	.then(res=>res.json())
 	.then(skills=>{
@@ -94,14 +90,60 @@ const populateSkills = () =>{
 				otherSkillsParent.appendChild(li);
 		});
 	})
+	.catch(err=>console.log(err))
 	
 }
 
-
-
-
 // PROJECTS to be done
-const populateProjects = ()=>{}
+const populateProjects = ()=>{
+	fetch('/api/projects')
+	.then(res=>res.json())
+	.then(projects=>{
+		// select parent div .projects-wrapper
+		const parent = document.querySelector('.projects-wrapper');
+		// loop starts here
+		projects.forEach(project=>{
+			// create a blank div as a wrapper
+			const div = document.createElement('div');
+				// create a div element with class .project which contains img
+			const projectDiv = document.createElement('div');
+				  projectDiv.classList.add('project');
+				  projectDiv.style.backgroundImage = `url(${project.img})`
+				// create a div element with class .overlay
+			const overlay = document.createElement('div');
+				  overlay.classList.add('overlay');
+					// create an h1 tag with a textnode of name
+			const h1 = document.createElement('h1');
+				  h1.appendChild(document.createTextNode(project.name));
+					// create an h2 tag with a textnode of technology
+			const h2 = document.createElement('h2');
+					// loop starts here to loop through projects.technology
+					h2.appendChild(document.createTextNode(project.technology.join().replace(/,/g, ' + ')));
+					// create a p tag with a textnode of description
+			const p = document.createElement('p');
+				  p.appendChild(document.createTextNode(project.description));
+				  	// append h1,h2 and p to .overlay
+				  	overlay.appendChild(h1);
+				  	overlay.appendChild(h2);
+				  	overlay.appendChild(p);
+					// create an a tag with class="fab fa-github" if github is not == ""
+			if (project.github){
+				const github = document.createElement('a');
+					  github.classList.add('fab'); 
+					  github.classList.add('fa-github'); 
+					  github.href = project.github;
+					  overlay.appendChild(github);
+			}
+			// append .project and .overlay to div
+				div.appendChild(projectDiv);
+				div.appendChild(overlay);
+
+			// append div to parent
+			parent.appendChild(div);
+		})
+	})
+	.catch(err=>console.log(err))
+}
 
 // Data for Testimonials
 const populateTestimonials = ()=>{
@@ -138,7 +180,7 @@ const populateTestimonials = ()=>{
 			let headline = document.createElement('h1');
 				headline.appendChild(document.createTextNode(testimonial.headline));
 					// create a p element which contains the message
-			let body = document.createElement('p');
+			let body = document.createElement('pre');
 				body.appendChild(document.createTextNode(testimonial.message));
 				// create a div element with class arrow-head
 			let arrowHead = document.createElement('div');
@@ -161,7 +203,7 @@ const populateTestimonials = ()=>{
 				parentTestimonials.appendChild(testimonialsWrapper);
 		});
 	})
-		
+	.catch(err=>console.log(err))
 }
 	
 
@@ -174,8 +216,38 @@ const hideDelay = ()=>{
   	}, 10000);
 }
 
-// EVENTS
+
+// send testimonials for review
+const submitForm = (e)=>{
+	e.preventDefault();
+	const author = document.getElementById('author').value;
+	const position = document.getElementById('position').value;
+	const company = document.getElementById('company').value;
+	const img = document.getElementById('img').value;
+	const headline = document.getElementById('headline').value;
+	const message = document.getElementById('message').value;
+
+	fetch('/api/testimonials', {
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			author: author,
+			company: company,
+			position: position,
+			img: img,
+			headline: headline,
+			message: message
+		})
+	})
+	.then(res=>res.json())
+	.then(data=>console.log(data))
+}
+
 // Copy emails into clipboard
+const emailButton = document.querySelector('#emailCopy');
 const sendEmail = ()=>{
 	window.location.href = 'mailto:jrvmartinz@gmail.com;jrmartinez2@myseneca.ca;jrvmartinez@icloud.com';
 }
@@ -209,6 +281,7 @@ var myScrollFunc = function() {
 
 };
 
+// resets position to origin
 const resetPosition = (elem)=>{
 	elem.style.transform = "translateX(0px)";
 	elem.style.opacity ="1";
@@ -227,25 +300,15 @@ const hideForm = ()=>{
 	blanket.style.zIndex = -99;	
 }
 
-// main data population
-populateTraits();
-populateSkills();
-populateTestimonials();
-
-
-// events
-open.addEventListener("click", showForm);
-close.addEventListener("click", hideForm);
-document.addEventListener("scroll", myScrollFunc);
-document.addEventListener("DOMContentLoaded", (e)=>{
+const slideShow = (e)=>{
 	const jumbo = document.querySelector('.jumbotron-header');
 	const jumbo2 = document.querySelector('.jumbotron-overlay2');
 	const first = document.querySelector('.first');
 	const second = document.querySelector('.second');
 	const third = document.querySelector('.third');
     const finish = document.querySelector('.jumbotron-header h2');
-
 	setTimeout(()=>{
+		window.scrollTo(0,0); //force scroll to top when page loads
 		document.querySelector('.jumbotron-overlay').style.filter = "blur(15px)";
 		first.style.opacity = "1";
 		first.style.transform = "scale(1.2)"
@@ -275,41 +338,20 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 			}, 1000)
 		}, 3000);
 	}, 2000)
-})
-
-
-// send testimonials for review
-const submitForm = (e)=>{
-	e.preventDefault();
-	const email = document.getElementById('email').value;
-	const author = document.getElementById('author').value;
-	const position = document.getElementById('position').value;
-	const company = document.getElementById('company').value;
-	const img = document.getElementById('img').value;
-	const headline = document.getElementById('headline').value;
-	const message = document.getElementById('message').value;
-
-	fetch('http://localhost:3000/api/testimonials', {
-		method: 'POST',
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			email: email,
-			author: author,
-			company: company,
-			position: position,
-			img: img,
-			headline: headline,
-			message: message
-		})
-	})
-	.then(res=>res.json())
-	.then(data=>console.log(data))
 }
+
+
+// main data population
+populateTraits();
+populateSkills();
+populateTestimonials();
+populateProjects();
+
+// events
+open.addEventListener("click", showForm);
+close.addEventListener("click", hideForm);
+emailButton.addEventListener('click', sendEmail);
+document.addEventListener("scroll", myScrollFunc);
+document.addEventListener("DOMContentLoaded", slideShow);
 document.querySelector('.to-submit').addEventListener('submit', submitForm);
 
-// email send
-const emailButton = document.querySelector('#emailCopy');
-emailButton.addEventListener('click', sendEmail);

@@ -9,3 +9,4 @@ module.exports.Trait = require('./traits');
 module.exports.Skill = require('./skills');
 module.exports.OtherSkill = require('./otherSkills');
 module.exports.Testimonial = require('./testimonials');
+module.exports.Project = require('./projects');
