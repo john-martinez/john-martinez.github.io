@@ -7,9 +7,14 @@ router.route('/')
 .get(helpers.showTestimonials)
 .post(helpers.addTestimonial)
 
+router.route('/review')
+.get(helpers.showForApproval)
+
 router.route('/:id')
 .get(helpers.showTestimonial)
 .put(helpers.editTestimonial)
 .delete(helpers.deleteTestimonial)
+
+
 
 module.exports = router;

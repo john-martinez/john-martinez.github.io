@@ -26,16 +26,19 @@
 				
 			</div>
 			<div class="jumbotron-overlay2 jumbotron">
-				<h1 class="first">Hello <span class="green">World!</span></h1>
-				<h1 class="second">My name is <span class="green">John</span></h1>
+				<h1 class="first">Hello <span class="green emphasize">World!</span></h1>
+				<h1 class="second">My name is <span class="green emphasize">John</span></h1>
 				<h1 class="third">And I <span class="green">am a </span></h1>
 			</div>
 		</div>
 	
 		<div id="next" class="section info">
 			<div class="info-header">	
-				<h1>My Name is <span class="green">JOHN</span><br>
-				and I <span class="green">AM</span></h1>
+				<div class="me">
+					<img src="mypic.jpg"/>
+					<p>Hi There! My name is <span class="green">John Ray </span>and I am a <span class="green">web developer</span> based in <span class="green">Toronto, Canada.</span> I enjoy traveling, playing games and trying out new things! I am <span class="green">currently looking for employment</span> in the <span class="green">web development field</span> where I can contribute using my current set of skills while also learning new technologies to improve my skillset.</p>	
+				</div>	
+				
 			</div>				
 			<div class="my-traits">
 				<!-- Traits will be displayed here -->
@@ -74,8 +77,51 @@
 		<div class="section testimonials">
 			<h1>What People <span class="green">Say</span> <br>About <span class="green">Me</span></h1>
 				<!-- testimonials go here -->
-
 		</div>
+			<h2 class="testi">Leave a <span class="green"> testimonial? </span><i class="fas fa-comment add-testi"></i></h2>
+			<div class="blanket">
+				<div class="testi-form-wrapper">
+					<form action="" method="" class="to-submit">
+							<table>
+								<thead><h1>Add Testimonial <i class="closeForm fas fa-times"></i></h1></thead>
+								<tr>
+									<td><label for="email"> Email </label></td>
+									<td><input id="email" type="email" name="email"> </td>
+								</tr>
+								<tr>
+									<td><label for="author"> Author </label></td>
+									<td><input id="author" type="text" name="author"> </td>
+								</tr>	
+									<tr>
+									<td><label for="position"> Job Title </label></td>
+									<td><input id="position" type="text" name="position"> </td>
+								</tr>	
+								<tr>
+									<td><label for="company"> Company </label></td>
+									<td><input id="company" type="text" name="company"> </td>
+								</tr>	
+								<tr>
+									<td><label for="image URL"> Photo URL </label></td>
+									<td><input id="img" type="text" name="img"> </td>
+								</tr>	
+								<tr>
+									<td><label for="headline"> Headline</label></td>
+									<td><input id="headline" type="text" name="headline"> </td>
+								</tr>	
+									<tr>
+									<td><label for="message"> Message </label></td>
+									<td><textarea id="message" name="message"></textarea></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><button class="submit" type="submit">Submit</button>
+									</td>
+								</tr>	
+							</table>				
+					</form>
+				</div>
+			</div>
+				
 		<footer class="section">
 			<div class="contact-me">
 				<h1>Contact <span class="green">Me </span></h1>

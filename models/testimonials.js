@@ -29,6 +29,10 @@ const testimonialSchema = new mongoose.Schema({
 	email:{
 		type: String,
 		required: true
+	},
+	approved:{
+		type: Boolean,
+		default: false
 	}
 });
 

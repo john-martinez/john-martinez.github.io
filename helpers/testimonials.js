@@ -1,7 +1,13 @@
 const db = require('../models');
 
 exports.showTestimonials = (req,res)=>{
-	db.Testimonial.find()
+	db.Testimonial.find({approved: true})
+	.then(data=>res.json(data))
+	.catch(err=>res.send(err))
+}
+
+exports.showForApproval = (req,res)=>{
+	db.Testimonial.find({approved: false})
 	.then(data=>res.json(data))
 	.catch(err=>res.send(err))
 }

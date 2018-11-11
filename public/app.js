@@ -183,7 +183,44 @@ const sendEmail = ()=>{
 // show sections with animations
 var myScrollFunc = function() {
   let y = window.scrollY;	
+  let a=400,
+  	  b=1000,
+      c=1300;
+
+  if (window.innerWidth < 675){
+  	a = 600;
+  	b = 1600;
+  	c = 1900;
+  }
+  if (y > a){
+  	resetPosition(document.querySelector('.my-traits'));
+  } 
+  if (y > b){
+  	resetPosition(document.querySelector('.my-skills-wrapper'));
+  } 
+    if (y > c){
+  	resetPosition(document.querySelector('.other-skills'));
+  } 
+
 };
+
+const resetPosition = (elem)=>{
+	elem.style.transform = "translateX(0px)";
+	elem.style.opacity ="1";
+}
+
+const close = document.querySelector('.closeForm');
+const open = document.querySelector('.add-testi');
+const blanket = document.querySelector('.blanket');
+const testiForm = document.querySelector('.test-form-wrapper');
+const showForm = ()=>{
+	blanket.style.opacity = 1;
+	blanket.style.zIndex = 98;
+}
+const hideForm = ()=>{
+	blanket.style.opacity = 0;
+	blanket.style.zIndex = -99;	
+}
 
 // main data population
 populateTraits();
@@ -192,8 +229,9 @@ populateTestimonials();
 
 
 // events
+open.addEventListener("click", showForm);
+close.addEventListener("click", hideForm);
 document.addEventListener("scroll", myScrollFunc);
-
 document.addEventListener("DOMContentLoaded", (e)=>{
 	const jumbo = document.querySelector('.jumbotron-header');
 	const jumbo2 = document.querySelector('.jumbotron-overlay2');
@@ -205,14 +243,17 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 	setTimeout(()=>{
 		document.querySelector('.jumbotron-overlay').style.filter = "blur(15px)";
 		first.style.opacity = "1";
-		setTimeout(()=>{
+		first.style.transform = "scale(1.2)"
+			setTimeout(()=>{
 			first.style.opacity="0";
 			setTimeout(()=>{
 				second.style.opacity = "1";
+				second.style.transform = "scale(1.2)"
 				setTimeout(()=>{
 					second.style.opacity ="0";
 					setTimeout(()=>{
 						third.style.opacity ="1";
+						third.style.transform = "scale(1.2)"
 						setTimeout(()=>{
 							third.style.opacity ="0";
 							setTimeout(()=>{
@@ -230,6 +271,39 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 		}, 3000);
 	}, 2000)
 })
+
+
+// send testimonials for review
+const submitForm = (e)=>{
+	e.preventDefault();
+	const email = document.getElementById('email').value;
+	const author = document.getElementById('author').value;
+	const position = document.getElementById('position').value;
+	const company = document.getElementById('company').value;
+	const img = document.getElementById('img').value;
+	const headline = document.getElementById('headline').value;
+	const message = document.getElementById('message').value;
+
+	fetch('http://localhost:3000/api/testimonials', {
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			email: email,
+			author: author,
+			company: company,
+			position: position,
+			img: img,
+			headline: headline,
+			message: message
+		})
+	})
+	.then(res=>res.json())
+	.then(data=>console.log(data))
+}
+document.querySelector('.to-submit').addEventListener('submit', submitForm);
 
 // email send
 const emailButton = document.querySelector('#emailCopy');
