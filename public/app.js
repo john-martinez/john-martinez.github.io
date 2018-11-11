@@ -183,22 +183,27 @@ const sendEmail = ()=>{
 // show sections with animations
 var myScrollFunc = function() {
   let y = window.scrollY;	
-  let a=400,
-  	  b=1000,
-      c=1300;
+  let a=200,
+  	  b=500,
+  	  c=1300,
+      d=1600;
 
   if (window.innerWidth < 675){
-  	a = 600;
-  	b = 1600;
-  	c = 1900;
+  	a - 300;
+  	b = 600;
+  	c = 2000;
+  	d = 2500;
   }
   if (y > a){
-  	resetPosition(document.querySelector('.my-traits'));
+  	resetPosition(document.querySelector('.me'));
   } 
   if (y > b){
+  	resetPosition(document.querySelector('.my-traits'));
+  } 
+  if (y > c){
   	resetPosition(document.querySelector('.my-skills-wrapper'));
   } 
-    if (y > c){
+    if (y > d){
   	resetPosition(document.querySelector('.other-skills'));
   } 
 

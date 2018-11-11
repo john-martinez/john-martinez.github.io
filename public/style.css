@@ -227,6 +227,8 @@ nav {
 	overflow: visible;
 	padding: 0px 0 30px 0px;
 	max-width: 1000px;
+	transform: translateX(-2000px);
+	transition: .5s;
 }
 
 .me p{
