@@ -604,6 +604,7 @@ tr>td:nth-of-type(1){
 	box-shadow: 5px 10px 20px rgba(0,0,0,.2);
 	z-index:99;
 	transition: .5s;
+
 }
 
 h1 i{
@@ -670,6 +671,7 @@ input:focus{
 	color: white;
 	font-family: "Prompt", sans-serif;
 	width: 100%;
+	font-size: 1.2rem;
 }
 
 .submit:hover{
@@ -745,9 +747,13 @@ input:focus{
 	.testimonial-block h1{
 		font-size: 1.5em;
 	}
+	.testi-form-wrapper{
+		width: 95%;
+		max-height: 95%;
+		overflow-y: scroll;
+		margin: 10px auto 10px auto;
+	}
 }
-
-
 
 @media screen and (max-width: 700px) {
 	.jumbotron{
@@ -771,14 +777,17 @@ input:focus{
 
 	.testi-form-wrapper{
 		width: 95%;
-		min-width: 320px;
+		min-width: 310px;
 		font-size: 1rem;
-		margin-top: 30px;
+		margin: 10px auto;
 	}
 
 	input, textarea{
 		font-size: 1rem;
 		width: 100%;
+	}
+	textarea{
+		height: 200px;
 	}
 
 	tr td:nth-of-type(1){
@@ -813,6 +822,10 @@ input:focus{
 	.arrow-head{
 		left: -10px;
 
+	}
+
+	.submit{
+		font-size: 1rem;
 	}
 
 	.testimonials-wrapper>*{
