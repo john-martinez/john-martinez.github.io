@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const Traits = require('./routes/traits');
@@ -5,8 +6,7 @@ const Skills = require('./routes/skills');
 const OtherSkills = require('./routes/otherSkills');
 const Projects = require('./routes/projects');
 const Testimonials = require('./routes/testimonials');
-
-
+const PORT = process.env.PORT || 3000;
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,4 +27,4 @@ app.use("/api/projects", Projects);
 app.use("/api/testimonials", Testimonials);
 
 
-app.listen(3000, ()=> "listening to port 3000");
+app.listen(PORT, ()=> `listening to port ${PORT}`);
