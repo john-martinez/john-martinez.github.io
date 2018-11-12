@@ -10,7 +10,7 @@ const close = document.querySelector('.closeForm');
 const open = document.querySelector('.add-testi');
 const blanket = document.querySelector('.blanket');
 const testiForm = document.querySelector('.test-form-wrapper');
-
+let timeoutId;
 
 /* FUNCTIONS */
 // Data for traits
@@ -225,7 +225,8 @@ const alertMessage = (success, msg) => {
 		  success ? alertMsg.style.backgroundColor = "rgba(50,250,77,.5)" : alertMsg.style.backgroundColor = "rgba(250,20,40,.7)";
 		  alertMsg.textContent = msg;
 		  showAlert();
-		  setTimeout(hideAlert,3000);
+		  clearTimeout(timeoutId);
+		  timeoutId = setTimeout(hideAlert,3000);
 }
 
 // send testimonials for review
