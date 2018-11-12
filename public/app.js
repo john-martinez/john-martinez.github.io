@@ -131,7 +131,14 @@ const populateProjects = ()=>{
 					// create an h2 tag with a textnode of technology
 			const h2 = document.createElement('h2');
 					// loop starts here to loop through projects.technology
-					h2.appendChild(document.createTextNode(project.technology.join().replace(/,/g, ' + ')));
+					// h2.appendChild(document.createTextNode(project.technology.join().replace(/,/g, ' + ')));
+			const icons = project.technology.map(tech=>{
+						let i = document.createElement('i');
+							i.classList.add(`devicon-${tech}-plain`);
+							i.title = tech;
+							return i;
+					})
+				  icons.forEach(icon=>h2.appendChild(icon));
 					// create a p tag with a textnode of description
 			const p = document.createElement('p');
 				  p.appendChild(document.createTextNode(project.description));
