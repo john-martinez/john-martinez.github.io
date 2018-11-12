@@ -220,9 +220,9 @@ const populateTestimonials = ()=>{
 	.catch(err=>console.log(err))
 }
 
-const alertMessage = (res, msg) => {
+const alertMessage = (success, msg) => {
 	const alertMsg = document.querySelector('.alert p');
-		  alertMsg.classList.add(res);
+		  success ? alertMsg.style.backgroundColor = "rgba(50,250,77,.5)" : alertMsg.style.backgroundColor = "rgba(250,20,40,.7)";
 		  alertMsg.textContent = msg;
 		  showAlert();
 		  setTimeout(hideAlert,3000);
@@ -251,11 +251,11 @@ const submitForm = (e)=>{
 		.then(data=>{
 			console.log(data);
 			formInputs.forEach(input=>input.readOnly = "true");
-			alertMessage("success", "Thank you! Your testimonial have been submitted for review!");
+			alertMessage(true, "Thank you! Your testimonial have been submitted for review!");
 			document.querySelector('.to-submit button').disabled = true;
 		}).catch(err=>console.log(err));
 	} else {
-		alertMessage("fail", "Please make sure that fields with * have values.");
+		alertMessage(false, "Please make sure that fields with * have values.");
 	}
 	
 }
@@ -301,8 +301,6 @@ const resetPosition = (elem)=>{
 	elem.style.opacity ="1";
 }
 
-
-
 const showAlert = ()=>{
 	document.querySelector('.alert').style.opacity = "1";
 	document.querySelector('.alert').style.zIndex = "199";
@@ -311,10 +309,6 @@ const showAlert = ()=>{
 const hideAlert = ()=>{
 	document.querySelector('.alert').style.opacity = "0";
 	document.querySelector('.alert').style.zIndex = "-199";
-	setTimeout(()=>{
-		document.querySelector('.alert p').classList.remove('sucess');
-		document.querySelector('.alert p').classList.remove('fail');	
-	},1000);
 }
 
 
@@ -332,8 +326,6 @@ const hideForm = ()=>{
 		item.readOnly = false;
 	})
 	hideAlert();
-
-
 }
 
 const slideShow = (e)=>{

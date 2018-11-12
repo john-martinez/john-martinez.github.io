@@ -887,7 +887,7 @@ input:focus{
 	text-align: center;
 	margin: 0 auto;
 	text-align: center;
-	transition: 1s;
+	transition: .3s;
 	opacity: 0;
 }
 
