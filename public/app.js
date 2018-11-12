@@ -1,3 +1,18 @@
+/* GLOBAL VARIABLES */
+const author = document.getElementById('author');
+const position = document.getElementById('position');
+const company = document.getElementById('company');
+const img = document.getElementById('img');
+const headline = document.getElementById('headline');
+const message = document.getElementById('message');
+const formInputs = [author,position,company,img,headline,message];
+const close = document.querySelector('.closeForm');
+const open = document.querySelector('.add-testi');
+const blanket = document.querySelector('.blanket');
+const testiForm = document.querySelector('.test-form-wrapper');
+
+
+/* FUNCTIONS */
 // Data for traits
 const populateTraits = () =>{
 	fetch('/api/traits')
@@ -72,7 +87,6 @@ const populateSkills = () =>{
 	})
 	.catch(err=>console.log(err))
 
-
     // other skills
 	fetch('/api/other-skills')
 	.then(res=>res.json())
@@ -91,7 +105,6 @@ const populateSkills = () =>{
 		});
 	})
 	.catch(err=>console.log(err))
-	
 }
 
 // PROJECTS to be done
@@ -206,45 +219,44 @@ const populateTestimonials = ()=>{
 	})
 	.catch(err=>console.log(err))
 }
-	
 
-
-// functions
-const hideDelay = ()=>{
-	window.setTimeout(()=>{
-  		nav.classList.add('hide');
-  		nav.classList.remove('show');
-  	}, 10000);
+const alertMessage = (res, msg) => {
+	const alert = document.querySelector('.alert p');
+		  alert.classList.add(res);
+		  alert.textContent = msg;
+		  showAlert();
+		  setTimeout(hideAlert,5000);
 }
-
 
 // send testimonials for review
 const submitForm = (e)=>{
 	e.preventDefault();
-	const author = document.getElementById('author').value;
-	const position = document.getElementById('position').value;
-	const company = document.getElementById('company').value;
-	const img = document.getElementById('img').value;
-	const headline = document.getElementById('headline').value;
-	const message = document.getElementById('message').value;
-
-	fetch('/api/testimonials', {
-		method: 'POST',
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			author: author,
-			company: company,
-			position: position,
-			img: img,
-			headline: headline,
-			message: message
+	if (author.value && headline.value && message.value){
+		fetch('/api/testimonials', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				author: author.value,
+				company: company.value,
+				position: position.value,
+				img: img.value,
+				headline: headline.value,
+				message: message.value
+			})
 		})
-	})
-	.then(res=>res.json())
-	.then(data=>console.log(data))
+		.then(res=>res.json())
+		.then(data=>{
+			console.log(data);
+			formInputs.forEach(input=>input.readOnly = "true");
+			alertMessage("success", "Thank you! Your testimonial have been submitted for review!");
+		}).catch(err=>console.log(err));
+	} else {
+		alertMessage("fail", "Please make sure that fields with * have values.");
+	}
+	
 }
 
 // Copy emails into clipboard
@@ -288,17 +300,36 @@ const resetPosition = (elem)=>{
 	elem.style.opacity ="1";
 }
 
-const close = document.querySelector('.closeForm');
-const open = document.querySelector('.add-testi');
-const blanket = document.querySelector('.blanket');
-const testiForm = document.querySelector('.test-form-wrapper');
+
+
+const showAlert = ()=>{
+	document.querySelector('.alert').style.opacity = "1";
+}
+
+const hideAlert = ()=>{
+	document.querySelector('.alert').style.opacity = "0";
+	document.querySelector('.alert').classList.remove('sucess');
+	document.querySelector('.alert').classList.remove('fail');
+	setTimeout(()=>document.querySelector('.alert').textContent = "",1000);
+	
+}
+
+
 const showForm = ()=>{
 	blanket.style.opacity = 1;
-	blanket.style.zIndex = 98;
+	blanket.style.zIndex = 198;
 }
 const hideForm = ()=>{
 	blanket.style.opacity = 0;
-	blanket.style.zIndex = -99;	
+	blanket.style.zIndex = -99;
+	// clear form
+	formInputs.forEach(item=>{
+		item.value = "";
+		item.readOnly = false;
+	})
+	hideAlert();
+
+
 }
 
 const slideShow = (e)=>{

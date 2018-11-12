@@ -880,6 +880,31 @@ input:focus{
 	font-size: 1rem;
 }
 
+.alert{
+	position: absolute;
+	top:50%;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	text-align: center;
+	transition: 1s;
+	opacity: 0;
+}
+
+.alert p{
+	font-family: "KoHo", sans-serif;
+	font-size: 1.1rem;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.success{
+	background-color: rgba(50,250,77,.4);
+}
+.fail{
+	background-color: rgba(250,20,40,.4);
+}
+
 /* SCROLL BAR STYLE */
 
 /* width */
@@ -887,7 +912,10 @@ input:focus{
     display: none;
 }
 
-
+input:read-only, textarea:read-only{
+	opacity: .4;
+	font-style: italic;
+}
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 1082px){
