@@ -182,7 +182,7 @@ const populateTestimonials = ()=>{
 				name.appendChild(document.createTextNode(testimonial.author));
 				// create a p element which contains the author's position and the company.
 			let position = document.createElement('p');
-			const at = testimonial.position ? "at" : "";
+			const at = testimonial.position && testimonial.company ? "at" : "";
 				position.appendChild(document.createTextNode(`${testimonial.position} ${at} ${testimonial.company}`))
 			//create a div element with class bubble
 			let bubble = document.createElement('div');
