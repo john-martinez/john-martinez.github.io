@@ -899,10 +899,10 @@ input:focus{
 }
 
 .success{
-	background-color: rgba(50,250,77,.4);
+	background-color: rgba(50,250,77,.5);
 }
 .fail{
-	background-color: rgba(250,20,40,.4);
+	background-color: rgba(250,20,40,.7);
 }
 
 /* SCROLL BAR STYLE */

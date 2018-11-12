@@ -221,11 +221,11 @@ const populateTestimonials = ()=>{
 }
 
 const alertMessage = (res, msg) => {
-	const alert = document.querySelector('.alert p');
-		  alert.classList.add(res);
-		  alert.textContent = msg;
+	const alertMsg = document.querySelector('.alert p');
+		  alertMsg.classList.add(res);
+		  alertMsg.textContent = msg;
 		  showAlert();
-		  setTimeout(hideAlert,5000);
+		  setTimeout(hideAlert,3000);
 }
 
 // send testimonials for review
@@ -252,6 +252,7 @@ const submitForm = (e)=>{
 			console.log(data);
 			formInputs.forEach(input=>input.readOnly = "true");
 			alertMessage("success", "Thank you! Your testimonial have been submitted for review!");
+			document.querySelector('.to-submit button').disabled = true;
 		}).catch(err=>console.log(err));
 	} else {
 		alertMessage("fail", "Please make sure that fields with * have values.");
@@ -304,20 +305,23 @@ const resetPosition = (elem)=>{
 
 const showAlert = ()=>{
 	document.querySelector('.alert').style.opacity = "1";
+	document.querySelector('.alert').style.zIndex = "199";
 }
 
 const hideAlert = ()=>{
 	document.querySelector('.alert').style.opacity = "0";
-	document.querySelector('.alert').classList.remove('sucess');
-	document.querySelector('.alert').classList.remove('fail');
-	setTimeout(()=>document.querySelector('.alert').textContent = "",1000);
-	
+	document.querySelector('.alert').style.zIndex = "-199";
+	setTimeout(()=>{
+		document.querySelector('.alert p').classList.remove('sucess');
+		document.querySelector('.alert p').classList.remove('fail');	
+	},1000);
 }
 
 
 const showForm = ()=>{
 	blanket.style.opacity = 1;
 	blanket.style.zIndex = 198;
+	document.querySelector('.to-submit button').disabled = false;
 }
 const hideForm = ()=>{
 	blanket.style.opacity = 0;
