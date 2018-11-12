@@ -520,7 +520,7 @@ nav {
 }
 
 .projects-wrapper > div:hover .overlay{
-	opacity: .7;
+	opacity: .7; 
 
 }
 
