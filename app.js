@@ -18,7 +18,6 @@ app.use(express.static(__dirname + "/media"));
 app.use(express.static(__dirname + "/build"));
 
 app.get('/', (req,res)=>{
-	console.log(__dirname);
 	res.render('index.html');
 });
 

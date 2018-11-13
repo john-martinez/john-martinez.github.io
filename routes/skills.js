@@ -4,12 +4,12 @@ const helpers = require('../helpers/skills');
 
 // show all skills
 router.route('/')
-.get(helpers.showSkills)
-.post(helpers.addSkill)
+	.get(helpers.showSkills)
+	.post(helpers.addSkill)
 
 router.route('/:id')
-.get(helpers.showSkill)
-.put(helpers.editSkill)
-.delete(helpers.deleteSkill)
+	.get(helpers.showSkill)
+	.put(helpers.editSkill)
+	.delete(helpers.deleteSkill)
 
 module.exports = router;

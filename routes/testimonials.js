@@ -4,16 +4,16 @@ const helpers = require('../helpers/testimonials');
 
 // show all skills
 router.route('/')
-.get(helpers.showTestimonials)
-.post(helpers.addTestimonial)
+	.get(helpers.showTestimonials)
+	.post(helpers.addTestimonial)
 
 router.route('/review')
-.get(helpers.showForApproval)
+	.get(helpers.showForApproval)
 
 router.route('/:id')
-.get(helpers.showTestimonial)
-.put(helpers.editTestimonial)
-.delete(helpers.deleteTestimonial)
+	.get(helpers.showTestimonial)
+	.put(helpers.editTestimonial)
+	.delete(helpers.deleteTestimonial)
 
 
 
