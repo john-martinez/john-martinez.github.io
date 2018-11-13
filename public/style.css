@@ -506,6 +506,9 @@ nav {
 	background-position: center top;
 	background-size: cover;
 	background-repeat: no-repeat;
+	-webkit-transition: .2s;
+	-o-transition: .2s;
+	transition: .4s;
 }
 
 .overlay{
