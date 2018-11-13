@@ -11,12 +11,14 @@ const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/views'));
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/media'));
 
+app.use(express.static(__dirname + "/views"));
+app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/media"));
+app.use(express.static(__dirname + "/build"));
 
 app.get('/', (req,res)=>{
+	console.log(__dirname);
 	res.render('index.html');
 });
 

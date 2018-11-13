@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "build": "webpack",
+    "start": "node app.js",
+    "dev-start": "webpack-dev-server --utput-public-path=/build/"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,12 @@
     "mongoose": "^5.3.10"
   },
   "devDependencies": {
-    "nodemon": "^1.18.6"
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "nodemon": "^1.18.6",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }
