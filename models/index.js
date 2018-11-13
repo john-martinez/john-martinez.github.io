@@ -1,11 +1,11 @@
-let mongoose = require('mongoose');
-// const dotenv = require('dotenv').config();
+const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 mongoose.Promise = Promise;
 mongoose.set("debug", true);
 
 
 // connect to the database  
-mongoose.connect("mongodb://admin:4r4yk0bH3!@ds121753.mlab.com:21753/portfolio");
+mongoose.connect(process.env.DB_URI);
 
 module.exports.Trait = require('./traits');
 module.exports.Skill = require('./skills');
