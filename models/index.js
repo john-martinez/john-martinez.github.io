@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+let mongoose = require('mongoose');
 // const dotenv = require('dotenv').config();
 mongoose.Promise = Promise;
 mongoose.set("debug", true);
