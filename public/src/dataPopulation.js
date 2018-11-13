@@ -137,6 +137,7 @@ export const populateProjects = ()=>{
 					  github.classList.add('fab'); 
 					  github.classList.add('fa-github'); 
 					  github.href = project.github;
+					  github.target = "_blank";
 					  overlay.appendChild(github);
 			}
 			// append .project and .overlay to div

@@ -1,3 +1,11 @@
+/* global variables*/
+const blanket = document.querySelector('.blanket');
+const testiForm = document.querySelector('.test-form-wrapper');
+const formInputs = [author,position,company,img,headline,message];
+let timeoutId;
+
+
+// functions
 // create alert
 export const alertMessage = (success, msg) => {
 	const alertMsg = document.querySelector('.alert p');
@@ -45,7 +53,7 @@ export const sendEmail = ()=>{
 }
 
 // show sections with animations
-export const myScrollFunc = function() {
+export const removeOffset = function() {
   let y = window.scrollY;	
   let a=200,
   	  b=500,
@@ -58,8 +66,6 @@ export const myScrollFunc = function() {
   	c = 2000;
   	d = 2500;
   }
-  console.log(y);
-  
   switch (true){
   	case y > d: resetPosition(document.querySelector('.other-skills'));
   				break;
@@ -98,6 +104,7 @@ export const showForm = ()=>{
 }
 
 export const hideForm = ()=>{
+	const blanket = document.querySelector('.blanket');
 	blanket.style.opacity = 0;
 	blanket.style.zIndex = -99;
 	// clear form
