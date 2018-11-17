@@ -778,7 +778,8 @@ tr>td:nth-of-type(1){
 	top: 0;
 	right: 0;
 	width: 40vw;
-	height:auto;
+	height:85vh;
+	max-height: 850px;
 	min-width: 700px;
 	margin: 50px auto;
 	border: 1px solid black;
@@ -791,7 +792,7 @@ tr>td:nth-of-type(1){
 	-webkit-transition: .5s;
 	-o-transition: .5s;
 	transition: .5s;
-
+	
 }
 
 h1 i{
