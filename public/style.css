@@ -248,8 +248,8 @@ nav {
 	text-decoration: underline;
 }
 
-.fa-arrow-right{
-	font-size: 5rem;
+.fa-download{
+	font-size: 3rem;
 	overflow: hidden;
 	margin: 50px auto 50px auto;
 	-webkit-transition: .5s;
@@ -259,14 +259,18 @@ nav {
 	color: white;
 }
 
-.fa-arrow-right:hover{
+.cv-link{
+	font-family: "Prompt", sans-serif;
+}
+
+.fa-download:hover{
 	-webkit-animation-play-state: paused;
 	        animation-play-state: paused;
 	color: #69c166;
 	cursor: pointer;
-	-webkit-transform: rotate(90deg);
-	    -ms-transform: rotate(90deg);
-	        transform: rotate(90deg);
+	-webkit-transform: scale(1.1);
+	    -ms-transform: scale(1.1);
+	        transform: scale(1.1);
 }
 
 .section{
@@ -952,8 +956,8 @@ input:read-only, textarea:read-only{
 	.me{
 		width:98%;
 	}
-	.fa-arrow-right{
-		font-size: 5rem;
+	.fa-download{
+		font-size: 2rem;
 		padding-top: 30px;
 		padding-bottom: 20px;
 
@@ -1004,8 +1008,8 @@ input:read-only, textarea:read-only{
 	.ampersand{
 		font-size: 4rem;
 	}
-	.fa-arrow-right{
-		font-size: 3rem;
+	.fa-download{
+		font-size: 1.5rem;
 		-webkit-transform: rotate(90deg);
 		    -ms-transform: rotate(90deg);
 		        transform: rotate(90deg);
