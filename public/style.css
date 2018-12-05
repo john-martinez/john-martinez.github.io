@@ -1010,9 +1010,6 @@ input:read-only, textarea:read-only{
 	}
 	.fa-download{
 		font-size: 1.5rem;
-		-webkit-transform: rotate(90deg);
-		    -ms-transform: rotate(90deg);
-		        transform: rotate(90deg);
 	}
 	.projects-wrapper{
 		width: 95%;
